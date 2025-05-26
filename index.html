@@ -22,29 +22,191 @@
                             <li><a href="#skills">Skills</a></li>
                             <li><a href="#projects">Projects</a></li>
                             <li><a href="#articles">Articles</a></li>
-                            <li><a href="#publications">Publications</a></li>
+<!--                            <li><a href="#publications">Publications</a></li>-->
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="subscribe">
-                <button>Subscribe to Newsletter</button>
+                <button class="subscribe-btn">Subscribe to Newsletter</button>
             </div>
         </div>
     </header>
     <section id="home" class="hero">
         <div class="heroContainer">
             <div class="heroPic">
-                <img src="./assets/IMG_2837.jpeggit add" alt="mercy-babayemi" width="2400" height="3600" >
+                <img src="./assets/Photoroom_20250516_62715%E2%80%AFPM%20Copy.jpeg" alt="mercy-babayemi" width="1600" height="2176">
             </div>
             <div class="heroText">
                 <h2>Welcome to My Portfolio</h2>
-                <p>Showcasing my journey in technology as I transition into software engineering. Here you'll find a showcase of my skills, projects and achievements that reflect my passion in the tech industry. Explore my journey and projects!</p>
+                <p>Showcasing my journey in technology as I transition into software engineering. Explore my journey, skill sets and projects!</p>
+                <div class="learnMoreContainer">
+                    <button class="learnMore">Learn More</button>
+                </div>
             </div>
         </div>
     </section>
-
+    <section id="about" class="about">
+        <div class="aboutContainer">
+            <h2>About Me</h2>
+            <p>
+                Hello! I’m a Nigerian with a passion for technology and contributing to the advancement of the human race.
+                With a commitment to making a difference through volunteering, particularly in education-related initiatives aligned with SDG4,
+                as I believe in the power of education to transform lives. My background includes a Bachelor of Arts in English,
+                and I am currently enhancing my skills in software engineering through a bootcamp.
+            </p>
+        </div>
+    </section>
+    <section id="skills" class="skills-section">
+        <div class="servicesText">
+            <h2>Skills</h2>
+            <p>My skill set is diverse and includes:</p>
+        </div>
+        <div class="skills-container">
+            <div class="servicesContainer">
+                <div class="serviceCard active">
+                    <img src="assets/programminglanguages.jpg" alt="programming_languages" width="1000" height="428">
+                    <h3>Programming Languages</h3>
+                    <p>Java, Python, JavaScript, HTML, CSS, Go Lang, Sui MOve</p>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/frameworkslogo.webp" alt="frameworks_logo" width="1024" height="640">
+                    <h3>Frameworks and Dependencies</h3>
+                    <p>Spring Boot, Django, React, Flask, React, Maven, Node, Express</p>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/datascienceanddatabasemanagementlogo.png" alt="datascienceanddatabasemanagementlogo" width="860" height="860">
+                    <h3>Database Management and Data Science</h3>
+                    <p>MongoDB, MySQL, PostgreSQL</p>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/machinelearninglogo.png" alt="machinelearninglogo" width="920" height="620">
+                    <h3>Machine Learning</h3>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/deeplearninglogo.jpg" alt="deeplearninglogo" width="820" height="500">
+                    <h3>Deep Learning</h3>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/devopslogo.png" alt="devopslogo" width="360" height="186">
+                    <h3>DevOps</h3>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/industrialdesignlogo.png" alt="industrialdesignlogo" width="360" height="360">
+                    <h3>Industrial Thinking</h3>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/designthinkinglogo.jpeg" alt="designthinkinglogo" width="337" height="150">
+                    <h3>Design Thinking</h3>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/busineessmanagementlogo.png" alt="businessmanagementlogo" width="360" height="360">
+                    <h3>Business Management</h3>
+                </div>
+                <div class="serviceCard">
+                    <img src="assets/writingandcommunicationlogo.jpg" alt="communicationandwritingskill" width="300" height="311">
+                    <h3>Communication and Writing Skill</h3>
+                </div>
+            </div>
+            <button class="arrow left" onclick="slides.moveSlide('prev')">&#10094;</button>
+            <button class="arrow right" onclick="slides.moveSlide('next')">&#10095;</button>
+        </div>
+    </section>
+    <section id="projects" class="projects-section">
+        <div class="projectContainer">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h3>TaskManagement App</h3>
+                    <p></p>
+                    <p><strong>Languages:</strong> Java, Javascript , HTML and CSS</p>
+                    <p><strong>Framework and dependencies:</strong> SpringBoot, Maven, React</p>
+                    <a href="#" target="_blank">Live Demo</a> | <a href="#" target="_blank">GitHub Repo</a>
+                </div>
+                <div class="project-item">
+                    <h3>Auction System</h3>
+                    <p></p>
+                    <p><strong>Languages:</strong> Python, Javascript , HTML and CSS</p>
+                    <p><strong>Framework and dependencies:</strong> Flask, React</p>
+                    <a href="#" target="_blank">Live Demo</a> | <a href="#" target="_blank">GitHub Repo</a>
+                </div>
+                <div class="project-item">
+                    <h3>DummyStore App</h3>
+                    <p></p>
+                    <p><strong>Languages:</strong>Javascript , HTML and CSS</p>
+                    <p><strong>Framework and dependencies:</strong> React</p>
+                    <a href="#" target="_blank">Live Demo</a> | <a href="#" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="articles" class="articles-section">
+        <div class="articleContainer">
+            <h2>Articles</h2>
+            <div class="article-grid">
+                <article class="article-item">
+                    <h3>Article Title 1</h3>
+                    <p>Short excerpt or summary of article 1.</p>
+                    <p><small>Published: YYYY-MM-DD</small></p>
+                    <a href="#">Read More</a>
+                </article>
+                <article class="article-item">
+                    <h3>Article Title 2</h3>
+                    <p>Short excerpt or summary of article 2.</p>
+                    <p><small>Published: YYYY-MM-DD</small></p>
+                    <a href="#">Read More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+<!--    <section id="publications" class="publications-section">-->
+<!--        <div class="publicationContainer">-->
+<!--            <h2>Publications</h2>-->
+<!--            <div class="publication-list">-->
+<!--                <div class="publication-item">-->
+<!--                    <h3>Publication Title 1</h3>-->
+<!--                    <p>Brief description of publication 1.</p>-->
+<!--                    <a href="#" target="_blank">View Publication</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <section id="subscribeToMyNewsletter" class="subscribe-section">
+        <div class="newsletter-signup">
+            <h3>Subscribe to My Newsletter</h3>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="social-media-links-footer">
+                <ul>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                    <li><a href="#" target="_blank">GitHub</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
-<footer></footer>
 </html>
