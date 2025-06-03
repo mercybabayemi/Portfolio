@@ -1,3 +1,22 @@
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, serverTimestamp } from "firebase/database";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD-77GNVK1nCDv3qjqcocZBocdm-CVYxSY",
+    authDomain: "firstportfolio-ac754.firebaseapp.com",
+    projectId: "firstportfolio-ac754",
+    storageBucket: "firstportfolio-ac754.firebasestorage.app",
+    messagingSenderId: "1075123322017",
+    appId: "1:1075123322017:web:c1af3ce85ceb33c29404e0",
+    measurementId: "G-9HYQMYDH5B"
+};
+
+// Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 document.addEventListener('DOMContentLoaded', function(){
     const heroSection =  document.querySelector('.hero');
     console.log(heroSection);
@@ -72,7 +91,44 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
 
+    //Move slides
+        const servicesContainer = document.querySelector('.servicesContainer');
+        const arrowLeft = document.querySelector('.arrow_left');
+        const arrowRight = document.querySelector('.arrow_right');
+        const cards = document.querySelectorAll('.serviceCard');
+        const cardWidth = cards[0].offsetWidth + 20;
+
+        let currentPosition = 0;
+        const maxPosition = (cards.length - 3) * cardWidth;
+
+        arrowLeft.addEventListener('click', () => {
+            currentPosition = Math.min(currentPosition + cardWidth, 0);
+            servicesContainer.style.transform = `translateX(${currentPosition}px)`;
+        });
+
+        arrowRight.addEventListener('click', () => {
+            currentPosition = Math.max(currentPosition - cardWidth, -maxPosition);
+            servicesContainer.style.transform = `translateX(${currentPosition}px)`;
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newCardWidth = cards[0].offsetWidth + 20;
+            currentPosition = currentPosition * (newCardWidth / cardWidth);
+            servicesContainer.style.transform = `translateX(${currentPosition}px)`;
+        });
+
+
+
     // Newsletter subscription form
+    function saveEmailToFirebase(email) {
+        const subscribersRef = ref(database, 'subscribers');
+        push(subscribersRef, {
+            email: email,
+            timestamp: serverTimestamp()
+        });
+    }
+
     const newsletterForm = document.querySelector('.newsletter-signup form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
@@ -85,6 +141,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 return;
             }
 
+            saveEmailToFirebase(email);
+
             console.log('Newsletter subscription:', email);
             alert('Thank you for subscribing!');
             emailInput.value = '';
@@ -95,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function(){
             return emailRegex.test(email);
         }
     }
+
 
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
