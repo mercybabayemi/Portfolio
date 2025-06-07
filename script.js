@@ -3,18 +3,10 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, serverTimestamp } from "firebase/database";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyD-77GNVK1nCDv3qjqcocZBocdm-CVYxSY",
-    authDomain: "firstportfolio-ac754.firebaseapp.com",
-    projectId: "firstportfolio-ac754",
-    storageBucket: "firstportfolio-ac754.firebasestorage.app",
-    messagingSenderId: "1075123322017",
-    appId: "1:1075123322017:web:c1af3ce85ceb33c29404e0",
-    measurementId: "G-9HYQMYDH5B"
-};
+import firebaseConfig from "./config.js";
 
 // Initialize Firebase
- const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 document.addEventListener('DOMContentLoaded', function(){
