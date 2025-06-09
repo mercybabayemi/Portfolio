@@ -730,6 +730,34 @@ header {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
+/* Form Feedback Messages */
+.form-feedback {
+    display: none;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.form-feedback.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.form-feedback.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* Loading state for button */
+button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 /* Newsletter Section */
 .subscribe-section {
     padding: 5rem 0; /* Padding for the newsletter section */

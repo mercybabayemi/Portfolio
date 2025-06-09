@@ -149,15 +149,28 @@ document.addEventListener('DOMContentLoaded', function(){
             emailInput.value = '';
         });
 
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
     }
 
 
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+    function showFeedback(message, isError = false) {
+        formFeedback.textContent = message;
+        formFeedback.className = isError ? 'form-feedback error' : 'form-feedback success';
+        formFeedback.style.display = 'block';
+
+        setTimeout(() => {
+            formFeedback.style.display = 'none';
+        }, 5000);
+    }
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -166,18 +179,43 @@ document.addEventListener('DOMContentLoaded', function(){
             const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
             if (!name || !email || !message) {
-                alert('Please fill in all fields');
+                showFeedback('Please fill in all fields', true);
                 return;
             }
 
             if (!isValidEmail(email)) {
-                alert('Please enter a valid email address');
+                showFeedback('Please enter a valid email address', true);
                 return;
             }
 
-            console.log('Contact form submitted:', { name, email, message });
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            fetch('https://formsubmit.co/ajax/mercyjanet013@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showFeedback('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    showFeedback('Failed to send message. Please try again later.', true);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
         });
     }
 
