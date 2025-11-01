@@ -671,6 +671,35 @@ header {
     color: var(--white);
 }
 
+.read-more-cta {
+    display: flex;
+    justify-content: center;   /* centers horizontally */
+    align-items: center;       /* centers vertically (within its box) */
+    margin-top: 3rem auto 0 auto;
+    text-align: center;
+    max-width: 1000px;
+    padding: 3rem;
+
+}
+
+.read-more-cta a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.read-more-cta a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: var(--box-shadow);
+}
+
+
 /* Contact Section */
 .contact-section {
     padding: 6rem 0; /* Padding for the contact section */
